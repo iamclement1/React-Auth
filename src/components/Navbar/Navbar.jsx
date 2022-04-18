@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 export const Navbar = () => {
@@ -5,25 +6,25 @@ export const Navbar = () => {
         <div>
             <nav className="navbar navbar-expand navbar-light fixed-top">
                 <div className="container">
-                    <a href="" className="navbar-brand" 
+                    <Link to="/" className="navbar-brand" 
                     data-toggle="collapse"
                     data-target="#nav">
                         Home
-                    </a>
+                    </Link>
                     
                     <div className="collapse navbar-collapse">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <a href="" className="nav-link" 
+                                <Link to="/login" className="nav-link" 
                                     data-toggle="collapse">
                                         Login
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a href="" className="nav-link" 
+                                <Link to="/register" className="nav-link" 
                                     data-toggle="collapse">
                                         Sign Up
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
