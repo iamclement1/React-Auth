@@ -29,6 +29,11 @@ function App() {
           </div>
         </div>
       </nav>
+      <div className="auth-wrapper">
+          <div className="auth-inner">
+            <h2>You're not logged in</h2>
+          </div>
+        </div>
     </div>
   );
 }
