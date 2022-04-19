@@ -26,7 +26,7 @@ export const Register = () => {
         error => {
             console.log(error)
         }
-    )
+    ) 
 
 
     return (
