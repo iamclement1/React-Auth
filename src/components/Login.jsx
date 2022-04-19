@@ -13,7 +13,7 @@ export const Login = () => {
 
     axios.post('http://localhost:3000/login?', handleSubmit).then(
         response => {
-            console.log(response)
+            localStorage.setItem('token', response.token);
         }
     ).catch(
         error => {
