@@ -1,33 +1,33 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export const Login = () => {
 
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
+    
+    
 
-    const handleSubmit = (event) => {
+    const handleSubmit =(event) => {
         event.preventDefault()
         const data = {
             email: email,
             password: password,
         }
+    
         
-        // alert('Your info has been received')
-
-        axios.post('https://itusell.herokuapp.com/api/users/login', data)
+        axios.post('login', data)
         .then( response => {
-            console.log(response.data)
-            
+            console.log(response.data);
+            localStorage.setItem("token", response.data.token);
+            toast.success('user logged in successfully')
         })
         .catch ( error => {
             console.log(error)
+            toast.error('user log in failed');
         })
     }
-
-    // "eyJhbGciOiJIUzI1NiJ9.NjI2NjdmNzRmM2ZmYzYwMDE3OWExOWJl.j2L6JQlQFL1i6Xz5cI9fB8HASPeINgmzjvOKbyn_l_s"
-
-
 
 
 

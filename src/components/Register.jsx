@@ -1,5 +1,7 @@
 import { useState, } from 'react'
 import { useNavigate } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify'
 import axios from 'axios'
 
 
@@ -29,6 +31,7 @@ export const Register = () => {
         .then( response => {
             console.log(response.data)
             localStorage.setItem('users', JSON.stringify(response.data))
+            toast.success('user successfully registered')
 
             if (response.data.success) {
                 navigate('/login')

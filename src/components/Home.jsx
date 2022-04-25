@@ -10,7 +10,7 @@ export const Home = () => {
             }
         }
 
-        axios.get('https://itusell.herokuapp.com/api/users/register', config).then(
+        axios.get('user', config).then(
             response => {
                 console.log(response);
             },
@@ -22,6 +22,7 @@ export const Home = () => {
 
 
     return (
+
         <div>
             <h2>You're not logged in</h2>
         </div>
