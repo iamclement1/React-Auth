@@ -15,10 +15,10 @@ export const Register = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        // alert('Your info has been received')
+        alert('Your info has been received')
     }
 
-    axios.post('http://localhost:3000/register?', handleSubmit).then(
+    axios.post('https://favour-inv-manager.herokuapp.com/api/register', handleSubmit).then(
         response => {
             alert(response)
         }
@@ -27,6 +27,8 @@ export const Register = () => {
             console.log(error)
         }
     ) 
+
+
 
 
     return (
@@ -45,7 +47,7 @@ export const Register = () => {
                     placeholder="First Name"
                     name="firstName"
                     value={firstName}
-                    onChange={ e => setFirstName(e.target.value)}
+                    onChange={ (e) => setFirstName(e.target.value)}
                     />
                 </div>
 
@@ -58,7 +60,7 @@ export const Register = () => {
                     placeholder="Last Name"
                     name="lastName"
                     value={lastName}
-                    onChange = { e => setLastName(e.target.value)}
+                    onChange = { (e) => setLastName(e.target.value)}
                     />
                 </div>
 
@@ -71,7 +73,7 @@ export const Register = () => {
                     placeholder="Email"
                     name="email"
                     value={email}
-                    onChange ={ e => setEmail (e.target.value)}
+                    onChange ={ (e) => setEmail (e.target.value)}
                     />
                 </div>
 
@@ -84,7 +86,7 @@ export const Register = () => {
                     placeholder="Password"
                     name="password"
                     value={password}
-                    onChange={ e => setPassword(e.target.value)}
+                    onChange={ (e) => setPassword(e.target.value)}
                     />
                 </div>
 
@@ -97,7 +99,7 @@ export const Register = () => {
                     placeholder="Confirm Password"
                     name="confirmPassword"
                     value={confirmPassword}
-                    onChange={ e => setConfirmPassword(e.target.value)}
+                    onChange={ (e) => setConfirmPassword(e.target.value)}
                     />
                 </div>
                 

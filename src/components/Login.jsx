@@ -38,7 +38,7 @@ export const Login = () => {
                     placeholder="Email"
                     name="email"
                     value={email}
-                    onChange ={ e => setEmail (e.target.value)}
+                    onChange ={ (e) => setEmail (e.target.value)}
                     />
                 </div>
 
@@ -51,7 +51,7 @@ export const Login = () => {
                     placeholder="Password"
                     name="password"
                     value={password}
-                    onChange={ e => setPassword(e.target.value)}
+                    onChange={ (e) => setPassword(e.target.value)}
                     />
                 </div>
 
