@@ -3,6 +3,8 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
 export const Login = () => {
 
     const [ email, setEmail ] = useState('');
@@ -21,15 +23,16 @@ export const Login = () => {
         axios.post('login', data)
         .then( response => {
             console.log(response.data);
-            localStorage.setItem("token", response.data.token);
-            toast.success('user logged in successfully')
+            localStorage.setItem(`token`, response.data.token);
+            toast.success(`user logged in successfully`);
         })
         .catch ( error => {
             console.log(error)
-            toast.error('user log in failed');
+            toast.error(`user log in failed`);
         })
     }
 
+    toast.configure()
 
 
 

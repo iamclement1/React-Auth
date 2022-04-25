@@ -8,6 +8,8 @@ import axios from 'axios'
 export const Register = () => {
 
     const navigate = useNavigate('')
+    
+    
 
 
 
@@ -41,6 +43,7 @@ export const Register = () => {
 
         .catch(error => {
             console.log(error)
+            toast.error('user not registered')
         })
     }
 

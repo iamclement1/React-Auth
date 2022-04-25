@@ -26,6 +26,12 @@ export const Navbar = () => {
                                         Sign Up
                                 </Link>
                             </li>
+                            <li>
+                                <Link to="/toast" className="nav-link"
+                                data-toggle="collapse">
+                                    Toastify
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
