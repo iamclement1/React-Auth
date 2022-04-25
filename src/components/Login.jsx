@@ -8,23 +8,33 @@ export const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        const data = {
+            email: email,
+            password: password,
+        }
+        
         // alert('Your info has been received')
+
+        axios.post('https://itusell.herokuapp.com/api/users/login', data)
+        .then( response => {
+            console.log(response.data)
+            
+        })
+        .catch ( error => {
+            console.log(error)
+        })
     }
 
-    axios.post('http://localhost:3000/login?', handleSubmit).then(
-        response => {
-            localStorage.setItem('token', response.token);
-        }
-    ).catch(
-        error => {
-            console.log(error)
-        }
-    )
+    // "eyJhbGciOiJIUzI1NiJ9.NjI2NjdmNzRmM2ZmYzYwMDE3OWExOWJl.j2L6JQlQFL1i6Xz5cI9fB8HASPeINgmzjvOKbyn_l_s"
+
+
+
+
 
 
     return (
         <div>
-            <form onSubmit={handleSubmit} >
+            <form>
                 <h3>
                     Login
                 </h3>
@@ -56,7 +66,8 @@ export const Login = () => {
                 </div>
 
                 
-                <button className="btn btn-primary btn-block">
+                <button className="btn btn-primary btn-block"
+                onClick={handleSubmit}>
                     Login
                 </button>
             </form>

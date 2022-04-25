@@ -10,7 +10,7 @@ export const Home = () => {
             }
         }
 
-        axios.get('http://localhost:3000/login', config).then(
+        axios.get('https://itusell.herokuapp.com/api/users/register', config).then(
             response => {
                 console.log(response);
             },

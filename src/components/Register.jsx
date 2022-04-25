@@ -1,57 +1,71 @@
-import { useState } from 'react'
+import { useState, } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+
 
 export const Register = () => {
 
-    // function handleChange (event) {
-    //     alert(event.target.value);
-    // }
+    const navigate = useNavigate('')
 
-    const [ firstName, setFirstName ] = useState('');
-    const [ lastName, setLastName ] = useState('');
+
+
+    const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
     const [confirmPassword, setConfirmPassword ] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        alert('Your info has been received')
+        const data = {
+            name: name,
+            email: email,
+            password: password,
+        }
+
+        console.log(data)
+        // alert('Your info has been received')
+
+        axios.post('https://itusell.herokuapp.com/api/users/register', data)
+        .then( response => {
+            console.log(response.data)
+            localStorage.setItem('users', JSON.stringify(response.data))
+
+            if (response.data.success) {
+                navigate('/login')
+            }
+            
+        })
+
+        .catch(error => {
+            console.log(error)
+        })
     }
 
-    axios.post('https://favour-inv-manager.herokuapp.com/api/register', handleSubmit).then(
-        response => {
-            alert(response)
-        }
-    ).catch(
-        error => {
-            console.log(error)
-        }
-    ) 
 
 
 
 
     return (
         <div>
-            <form onSubmit={handleSubmit} >
+            <form>
                 <h3>
                     Sign Up
                 </h3>
 
                 <div className="form-group">
                     <label htmlFor="">
-                        First Name
+                        Full Name
                     </label>
                     <input type="text"
                     className="form-control"
                     placeholder="First Name"
-                    name="firstName"
-                    value={firstName}
-                    onChange={ (e) => setFirstName(e.target.value)}
+                    name="name"
+                    value={name}
+                    onChange={ (e) => setName(e.target.value)}
                     />
                 </div>
 
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="">
                         Last Name
                     </label>
@@ -62,7 +76,7 @@ export const Register = () => {
                     value={lastName}
                     onChange = { (e) => setLastName(e.target.value)}
                     />
-                </div>
+                </div> */}
 
                 <div className="form-group">
                     <label htmlFor="">
@@ -103,7 +117,8 @@ export const Register = () => {
                     />
                 </div>
                 
-                <button className="btn btn-primary btn-block">
+                <button className="btn btn-primary btn-block"
+                onClick={handleSubmit}>
                     Sign Up
                 </button>
             </form>
