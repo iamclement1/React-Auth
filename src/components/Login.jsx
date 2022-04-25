@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Login = () => {
 
@@ -9,7 +10,7 @@ export const Login = () => {
     
     
 
-    const handleSubmit =(event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         const data = {
             email: email,
