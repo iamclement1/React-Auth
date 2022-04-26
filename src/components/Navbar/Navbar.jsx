@@ -26,11 +26,6 @@ export const Navbar = () => {
                                         Sign Up
                                 </Link>
                             </li>
-                            {/* <li className="nav-item">
-                                <Link to='/formjoi' className="nav-link">
-                                Form-Joi
-                                </Link>
-                            </li> */}
                         </ul>
                     </div>
                 </div>

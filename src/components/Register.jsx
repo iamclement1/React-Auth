@@ -18,13 +18,20 @@ export const Register = () => {
     const [ password, setPassword ] = useState('');
     const [confirmPassword, setConfirmPassword ] = useState('');
 
+
+    // const [ fullNameError, setFullNameError ] = useState({});
+    // const [ emailError, setEmailError ] = useState({});
+
+
     const handleSubmit = (event) => {
         event.preventDefault()
+        // const isValid = formValidation()
         const data = {
             name: name,
             email: email,
             password: password,
         }
+       
 
         console.log(data)
         // alert('Your info has been received')
@@ -45,8 +52,34 @@ export const Register = () => {
             console.log(error)
             toast.error('user not registered')
         })
+
+        
     }
 
+    // const formValidation = () => {
+    //     const fullNameError = {};
+    //     const emailError = {};
+    //     let isValid = true;
+
+    //     if(name.trim().length < 5) {
+    //         fullNameError.fullNameShort = 'full name is too short';
+    //         isValid = false;
+    //     }
+
+    //     if(name.trim().length > 30 ){
+    //         fullNameError.fullNameLong = 'full name is too long';
+    //         isValid = false;
+    //     }
+
+    //     if(!email.includes('@')) {
+    //         emailError.email = 'email must have @'
+    //         isValid = false;
+    //     }
+
+    //     setFullNameError(fullNameError);
+    //     setEmailError(emailError);
+    //     return isValid;
+    // }
 
 
 
@@ -69,6 +102,14 @@ export const Register = () => {
                     value={name}
                     onChange={ (e) => setName(e.target.value)}
                     />
+
+                    {/* {Object.keys(fullNameError).map((key)=> {
+                        return <div style={{
+                            color: 'red'
+                        }}>
+                            {fullNameError[key]}
+                        </div>
+                    })} */}
                 </div>
 
                 {/* <div className="form-group">
@@ -95,6 +136,13 @@ export const Register = () => {
                     value={email}
                     onChange ={ (e) => setEmail (e.target.value)}
                     />
+                    {/* {Object.keys(emailError).map((key)=> {
+                        return <div style={{
+                            color: 'red'
+                        }}>
+                            {emailError[key]}
+                        </div>
+                    })} */}
                 </div>
 
                 <div className="form-group">
