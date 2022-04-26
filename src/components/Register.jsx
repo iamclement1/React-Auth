@@ -52,10 +52,9 @@ export const Register = () => {
             console.log(error)
             toast.error('user not registered')
         })
-
-        
     }
 
+   
     // const formValidation = () => {
     //     const fullNameError = {};
     //     const emailError = {};
