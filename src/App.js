@@ -5,6 +5,30 @@ import { Navbar } from './components/Navbar/Navbar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Login } from './components/Login';
 import { Register } from './components/Register';
+import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from 'supertokens-auth-react';
+import ThirdPartyEmailPassword, { Github, Google, Apple } from 'supertokens-auth-react/recipe/thirdpartyemailpassword'
+import Session from 'supertokens-auth-react/recipe/session';
+
+
+SuperTokens.init({
+  appInfo: {
+    appName: 'react-auth',
+    apiDomain: 'http://localhost:3001',
+    websiteDomain: 'http://localhost:3000'
+  },
+  recipeList:  [
+    ThirdPartyEmailPassword.init({
+      signInAndUpFeature: {
+        providers: [
+          Github.init(),
+          Google.init(),
+          Apple.init(),
+        ],
+      },
+    }),
+    Session.init()
+  ]
+})
 
 
 
@@ -16,6 +40,7 @@ function App() {
       <div className="auth-wrapper">
           <div className="auth-inner">
             <Routes>
+              { getSuperTokensRoutesForReactRouterDom(require('react-router-dom'))}
               <Route path="/"  element={ <Home />} />
               <Route path="/login" element={ <Login /> } />
               <Route path="/register" element={ <Register /> } />
