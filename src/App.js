@@ -5,6 +5,7 @@ import { Navbar } from './components/Navbar/Navbar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Login } from './components/Login';
 import { Register } from './components/Register';
+import { SignUpForm } from './components/Formik/SignUpForm';
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from 'supertokens-auth-react';
 import ThirdPartyEmailPassword, { Github, Google, Apple } from 'supertokens-auth-react/recipe/thirdpartyemailpassword'
 import Session from 'supertokens-auth-react/recipe/session';
@@ -44,6 +45,7 @@ function App() {
               <Route path="/"  element={ <Home />} />
               <Route path="/login" element={ <Login /> } />
               <Route path="/register" element={ <Register /> } />
+              <Route path="/formik" element={ <SignUpForm /> } />
             </Routes>
           </div>
         </div>

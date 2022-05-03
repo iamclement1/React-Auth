@@ -3,6 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify'
 import axios from 'axios'
+import { Formik, Form, Field } from 'formik'
+import * as Yup from 'yup'
+
+const RegisterSchema = Yup.object().shape({
+    firstName: Yup.string()
+})
 
 
 export const Register = () => {
@@ -89,6 +95,7 @@ export const Register = () => {
                     className="form-control"
                     placeholder="Email"
                     name="email"
+                    id='email'
                     value={email}
                     onChange ={ (e) => setEmail (e.target.value)}
                     />

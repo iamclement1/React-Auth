@@ -26,6 +26,12 @@ export const Navbar = () => {
                                         Sign Up
                                 </Link>
                             </li>
+                            <li>
+                                <Link to="/formik" className="nav-link"
+                                data-toggle="collapse">
+                                        Formik
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
